@@ -92,7 +92,37 @@ while (true) {
 
         case 3:
 
-            funcao.cadastroMunicipio()
+
+            console.log(`
+        1. Atualizar Pais.
+        2. Atualizar Estado.
+        3. Atualizar Município.`);
+            opcao = Number(prompt());
+
+            switch (opcao) {
+
+                case 1:
+
+                    funcao.atualizarPais();
+
+                    break;
+
+                case 2:
+
+
+
+                    break;
+
+
+                case 3:
+
+                    break;
+
+
+
+                default:
+                    break;
+            }
 
             break;
 

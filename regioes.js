@@ -173,13 +173,23 @@ const cadastroMunicipio = () => {
 
 const listaPaises = () => {
 
+    if (paises.length == 0) {
+        console.log('Nenhum país cadastrado.');
+        return;
+    }
+
     paises.forEach((pais, i) => {
 
-        console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estadus: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
+        console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estados: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
     });
 };
 
 const listaEstados = () => {
+
+    if (estados.length == 0) {
+        console.log('Nenhum estado cadastrado.');
+        return;
+    }
 
     estados.forEach((estado, i) => {
 
@@ -188,6 +198,11 @@ const listaEstados = () => {
 };
 
 const listaMunicipios = () => {
+
+    if (municipios.length == 0) {
+        console.log('Nenhum município cadastrado.');
+        return;
+    }
 
     municipios.forEach((municipio, i) => {
 
@@ -201,14 +216,54 @@ const atualizarPais = () => {
 
         listaPaises();
 
-        let opcao = prompt('Escolha pelo índice qual país deseja atualizar: ');
+        let indice = prompt('Escolha pelo índice qual país deseja atualizar: ');
 
-        if (verificarNumero(opcao)) {
+        if (verificarNumero(indice)) {
             console.log('Insira um número por favor.');
         } else {
+            const pais = cadastroPaises();
+            paises[indice] = pais;
             break;
         }
-        
+
+    };
+};
+
+const atualizarEstado = () => {
+
+    while (true) {
+
+        listaEstados();
+
+        let indice = prompt('Escolha pelo índice qual estado deseja atualizar: ');
+
+        if (verificarNumero(indice)) {
+            console.log('Insira um número por favor.');
+        } else {
+            let estado = cadastroPaises();
+            estados[indice] = estado;
+            break;
+        }
+
+    };
+};
+
+const atualizarMunicipio = () => {
+
+    while (true) {
+
+        listaMunicipios();
+
+        let indice = prompt('Escolha pelo índice qual município deseja atualizar: ');
+
+        if (verificarNumero(indice)) {
+            console.log('Insira um número por favor.');
+        } else {
+            let municipio = cadastroPaises();
+            municipios[indice] = municipio;
+            break;
+        }
+
     };
 };
 
@@ -219,4 +274,7 @@ module.exports = {
     listaPaises,
     listaEstados,
     listaMunicipios,
+    atualizarPais,
+    atualizarEstado,
+    atualizarMunicipio
 };
