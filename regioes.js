@@ -175,58 +175,48 @@ const listaPaises = () => {
 
     if (paises.length == 0) {
         console.log('Nenhum país cadastrado.');
-        return;
+    } else {
+        paises.forEach((pais, i) => {
+            console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estados: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
+        });
     }
-
-    paises.forEach((pais, i) => {
-
-        console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estados: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
-    });
 };
 
 const listaEstados = () => {
 
     if (estados.length == 0) {
         console.log('Nenhum estado cadastrado.');
-        return;
+    } else {
+        estados.forEach((estado, i) => {
+            console.log(`${i + 1}, Nome do Estado: ${estado.nome}, UF: ${estado.uf}, Quantidade de municípios ${estado.qMunicipios}, População: ${estado.populacao}.`);
+        });
     }
-
-    estados.forEach((estado, i) => {
-
-        console.log(`${i + 1}, Nome do Estado: ${estado.nome}, UF: ${estado.uf}, Quantidade de municípios ${estado.qMunicipios}, População: ${estado.populacao}.`);
-    });
 };
 
 const listaMunicipios = () => {
 
     if (municipios.length == 0) {
         console.log('Nenhum município cadastrado.');
-        return;
-    }
+    } else {
+        municipios.forEach((municipio, i) => {
+            console.log(`${i + 1}, Nome do Município: ${municipio.nome}, Quantidade de Bairros: ${municipio.qBairros}, População: ${municipio.populacao}.`);
+        });
+    };
+}
 
-    municipios.forEach((municipio, i) => {
-
-        console.log(`${i + 1}, Nome do Município: ${municipio.nome}, Quantidade de Bairros: ${municipio.qBairros}, População: ${municipio.populacao}.`);
-    });
-};
 
 const atualizarPais = () => {
 
-    while (true) {
+    listaPaises();
 
-        listaPaises();
+    const indice = prompt('Escolha pelo índice qual país deseja atualizar: ') - 1;
 
-        let indice = prompt('Escolha pelo índice qual país deseja atualizar: ');
-
-        if (verificarNumero(indice)) {
-            console.log('Insira um número por favor.');
-        } else {
-            const pais = cadastroPaises();
-            paises[indice] = pais;
-            break;
-        }
-
-    };
+    if (verificarNumero(indice)) {
+        console.log('Insira um número por favor.');
+    } else {
+        const pais = cadastroPaises();
+        paises[indice] = pais;
+    }
 };
 
 const atualizarEstado = () => {
