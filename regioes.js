@@ -59,7 +59,7 @@ const cadastroPaises = () => {
     };
 
     while (true) {
-        
+
         pais.populacao = prompt('Insira a quantidade de pessoas que vivem nesse município: ');
 
         if (verificarNumero(pais.populacao)) {
@@ -80,7 +80,7 @@ const cadastroEstados = () => {
     let estado = {};
 
     while (true) {
-        
+
         estado.nome = prompt('Insira o nome do estado: ');
 
         if (verificarNome(estado.nome)) {
@@ -91,7 +91,7 @@ const cadastroEstados = () => {
     };
 
     while (true) {
-        
+
         estado.uf = prompt('Insira a UF do estado: ');
 
         if (verificarNome(estado.uf)) {
@@ -102,7 +102,7 @@ const cadastroEstados = () => {
     };
 
     while (true) {
-        
+
         estado.qMunicipios = prompt('Insira a quantidade de municípios desse estado: ');
 
         if (verificarNumero(estado.qMunicipios)) {
@@ -113,7 +113,7 @@ const cadastroEstados = () => {
     };
 
     while (true) {
-        
+
         estado.populacao = prompt('Insira a quantidade de pessoas que vivem nesse município: ');
 
         if (verificarNumero(estado.populacao)) {
@@ -134,7 +134,7 @@ const cadastroMunicipio = () => {
     let municipio = {};
 
     while (true) {
-        
+
         municipio.nome = prompt('Insira o nome do município: ');
 
         if (verificarNome(municipio.nome)) {
@@ -145,10 +145,10 @@ const cadastroMunicipio = () => {
     };
 
     while (true) {
-        
-        municipio.bairros = prompt('Insira a quantidade de bairros que esse município possui: ');
 
-        if (verificarNumero(municipio.bairros)) {
+        municipio.qBairros = prompt('Insira a quantidade de bairros que esse município possui: ');
+
+        if (verificarNumero(municipio.qBairros)) {
             console.log('Insira um número por favor.');
         } else {
             break;
@@ -156,7 +156,7 @@ const cadastroMunicipio = () => {
     };
 
     while (true) {
-        
+
         municipio.populacao = prompt('Insira a quantidade de pessoas que vivem nesse município: ');
 
         if (verificarNumero(municipio.populacao)) {
@@ -171,8 +171,52 @@ const cadastroMunicipio = () => {
     console.log(municipios);
 };
 
+const listaPaises = () => {
+
+    paises.forEach((pais, i) => {
+
+        console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estadus: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
+    });
+};
+
+const listaEstados = () => {
+
+    estados.forEach((estado, i) => {
+
+        console.log(`${i + 1}, Nome do Estado: ${estado.nome}, UF: ${estado.uf}, Quantidade de municípios ${estado.qMunicipios}, População: ${estado.populacao}.`);
+    });
+};
+
+const listaMunicipios = () => {
+
+    municipios.forEach((municipio, i) => {
+
+        console.log(`${i + 1}, Nome do Município: ${municipio.nome}, Quantidade de Bairros: ${municipio.qBairros}, População: ${municipio.populacao}.`);
+    });
+};
+
+const atualizarPais = () => {
+
+    while (true) {
+
+        listaPaises();
+
+        let opcao = prompt('Escolha pelo índice qual país deseja atualizar: ');
+
+        if (verificarNumero(opcao)) {
+            console.log('Insira um número por favor.');
+        } else {
+            break;
+        }
+        
+    };
+};
+
 module.exports = {
     cadastroPaises,
     cadastroEstados,
     cadastroMunicipio,
+    listaPaises,
+    listaEstados,
+    listaMunicipios,
 };
