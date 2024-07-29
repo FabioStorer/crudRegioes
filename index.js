@@ -1,5 +1,7 @@
 const prompt = require('prompt-sync')();
-const funcao = require('./regioes.js');
+const funcaoPais = require('./pais.js');
+const funcaoEstado = require('./estado.js');
+const funcaoMunicipio = require('./municipio.js');
 
 console.log(`Bem-vindo ao cadastro de regiões. Escolha uma opção de cadastro:`);
 while (true) {
@@ -26,19 +28,19 @@ while (true) {
 
                 case 1:
 
-                    funcao.cadastroPaises();
+                    funcaoPais.cadastroPaises();
 
                     break;
 
                 case 2:
 
-                    funcao.cadastroEstados();
+                    funcaoEstado.cadastroEstados();
 
                     break;
 
                 case 3:
 
-                    funcao.cadastroMunicipio();
+                    funcaoMunicipio.cadastroMunicipio();
 
                     break;
 
@@ -63,20 +65,20 @@ while (true) {
 
                 case 1:
 
-                    funcao.listaPaises();
+                    funcaoPais.listaPaises();
 
                     break;
 
                 case 2:
 
-                    funcao.listaEstados();
+                    funcaoEstado.listaEstados();
 
                     break;
 
 
                 case 3:
 
-                    funcao.listaMunicipios();
+                    funcaoMunicipio.listaMunicipios();
 
                     break;
 
@@ -102,20 +104,20 @@ while (true) {
 
                 case 1:
 
-                    funcao.atualizarPais();
+                    funcaoPais.atualizarPais();
 
                     break;
 
                 case 2:
 
-                    funcao.atualizarEstado();
+                    funcaoEstado.atualizarEstado();
 
                     break;
 
 
                 case 3:
 
-                    funcao.atualizarMunicipio();
+                    funcaoMunicipio.atualizarMunicipio();
 
                     break;
 
@@ -140,19 +142,19 @@ while (true) {
 
                 case 1:
 
-                    funcao.removerPais();
+                    funcaoPais.removerPais();
 
                     break;
 
                 case 2:
 
-                    funcao.removerEstado
+                    funcaoEstado.removerEstado();
 
                     break;
 
                 case 3:
 
-                    funcao.removerMunicipio
+                    funcaoMunicipio.removerMunicipio();
 
                     break;
 
