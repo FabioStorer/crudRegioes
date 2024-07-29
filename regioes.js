@@ -7,7 +7,7 @@ const verificarNome = nome => nome == '';
 
 const verificarNumero = numero => numero < 0 || isNaN(numero);
 
-const cadastroPaises = () => {
+const modeloPais = () => {
 
     let pais = {};
 
@@ -69,13 +69,11 @@ const cadastroPaises = () => {
         }
     };
 
-    paises.push(pais);
-    console.log('Escolha uma nova opção:');
-    console.log(paises);
+    return pais
 
 };
 
-const cadastroEstados = () => {
+const modeloEstado = () => {
 
     let estado = {};
 
@@ -123,13 +121,9 @@ const cadastroEstados = () => {
         }
     };
 
-    estados.push(estado);
-    console.log('Escolha uma nova opção:');
-    console.log(estados);
-
 };
 
-const cadastroMunicipio = () => {
+const modeloMunicipio = () => {
 
     let municipio = {};
 
@@ -166,6 +160,32 @@ const cadastroMunicipio = () => {
         }
     };
 
+};
+
+const cadastroPaises = () => {
+
+    let pais = modeloPais();
+
+    paises.push(pais);
+    console.log('Escolha uma nova opção:');
+    console.log(paises);
+
+};
+
+const cadastroEstados = () => {
+
+    modeloEstado();
+
+    estados.push(estado);
+    console.log('Escolha uma nova opção:');
+    console.log(estados);
+
+};
+
+const cadastroMunicipio = () => {
+
+    modeloMunicipio();
+
     municipios.push(municipio);
     console.log('Escolha uma nova opção.');
     console.log(municipios);
@@ -176,6 +196,7 @@ const listaPaises = () => {
     if (paises.length == 0) {
         console.log('Nenhum país cadastrado.');
     } else {
+        console.log(paises)
         paises.forEach((pais, i) => {
             console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estados: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
         });
@@ -214,47 +235,64 @@ const atualizarPais = () => {
     if (verificarNumero(indice)) {
         console.log('Insira um número por favor.');
     } else {
-        const pais = cadastroPaises();
+        const pais = modeloPais();
         paises[indice] = pais;
     }
 };
 
 const atualizarEstado = () => {
 
-    while (true) {
+    listaEstados();
 
-        listaEstados();
+    let indice = prompt('Escolha pelo índice qual estado deseja atualizar: ');
 
-        let indice = prompt('Escolha pelo índice qual estado deseja atualizar: ');
-
-        if (verificarNumero(indice)) {
-            console.log('Insira um número por favor.');
-        } else {
-            let estado = cadastroPaises();
-            estados[indice] = estado;
-            break;
-        }
-
-    };
+    if (verificarNumero(indice)) {
+        console.log('Insira um número por favor.');
+    } else {
+        let estado = modeloEstado();
+        estados[indice] = estado;
+    }
 };
 
 const atualizarMunicipio = () => {
 
-    while (true) {
+    listaMunicipios();
 
-        listaMunicipios();
+    let indice = prompt('Escolha pelo índice qual município deseja atualizar: ');
 
-        let indice = prompt('Escolha pelo índice qual município deseja atualizar: ');
+    if (verificarNumero(indice)) {
+        console.log('Insira um número por favor.');
+    } else {
+        let municipio = modeloMunicipio();
+        municipios[indice] = municipio;
+    }
+};
 
-        if (verificarNumero(indice)) {
-            console.log('Insira um número por favor.');
-        } else {
-            let municipio = cadastroPaises();
-            municipios[indice] = municipio;
-            break;
-        }
+const removerPais = () => {
 
-    };
+    listaPaises();
+
+    let indice = prompt('Escolha pelo índice qual país deseja remover: ');
+
+    paises.splice(indice - 1, 1);
+};
+
+const removerEstado = () => {
+
+    listaEstados();
+
+    let indice = prompt('Escolha pelo índice qual estado deseja remover: ');
+
+    paises.splice(indice - 1, 1);
+};
+
+const removerMunicipio = () => {
+
+    listaMunicipios();
+
+    let indice = prompt('Escolha pelo índice qual município deseja remover: ');
+
+    paises.splice(indice - 1, 1);
 };
 
 module.exports = {
@@ -266,5 +304,8 @@ module.exports = {
     listaMunicipios,
     atualizarPais,
     atualizarEstado,
-    atualizarMunicipio
+    atualizarMunicipio,
+    removerPais,
+    removerEstado,
+    removerMunicipio
 };

@@ -92,7 +92,6 @@ while (true) {
 
         case 3:
 
-
             console.log(`
         1. Atualizar Pais.
         2. Atualizar Estado.
@@ -109,18 +108,21 @@ while (true) {
 
                 case 2:
 
-
+                    funcao.atualizarEstado();
 
                     break;
 
 
                 case 3:
 
+                    funcao.atualizarMunicipio();
+
                     break;
 
-
-
                 default:
+
+                console.log('Opção inválida.');
+
                     break;
             }
 
@@ -128,7 +130,31 @@ while (true) {
 
         case 4:
 
+        console.log(`
+        1. Remover Pais.
+        2. Remover Estado.
+        3. Remover Município.`);
+            opcao = Number(prompt());
 
+            switch (opcao) {
+
+                case 1:
+
+                funcao.removerPais();
+                    
+                    break;
+
+                case 2:
+                    
+                break;
+
+                case 3:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
 
             break;
 
