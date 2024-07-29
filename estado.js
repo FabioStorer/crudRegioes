@@ -75,7 +75,11 @@ const listaEstados = () => {
         return false;
     } else {
         estados.forEach((estado, i) => {
-            console.log(`${i + 1}, Nome do Estado: ${estado.nome}, UF: ${estado.uf}, Quantidade de municípios ${estado.qMunicipios}, População: ${estado.populacao}.`);
+            console.log(`${i + 1}
+            Nome do Estado: ${estado.nome}
+            UF: ${estado.uf}
+            Quantidade de municípios ${estado.qMunicipios}
+            População: ${estado.populacao}.`);
         });
         return true;
     }

@@ -89,7 +89,12 @@ const listaPaises = () => {
     } else {
         console.log(paises)
         paises.forEach((pais, i) => {
-            console.log(`${i + 1}, Nome do País: ${pais.nome}, Continente: ${pais.continente}, Número de Estados: ${pais.nEstados}, Regiões: ${pais.regioes}, População: ${pais.populacao}.`);
+            console.log(`${i + 1}
+            Nome do País: ${pais.nome}
+            Continente: ${pais.continente}
+            Número de Estados: ${pais.nEstados}
+            Regiões: ${pais.regioes}
+            População: ${pais.populacao}.`);
         });
         return true
     }

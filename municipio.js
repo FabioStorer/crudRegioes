@@ -63,7 +63,10 @@ const listaMunicipios = () => {
         return false;
     } else {
         municipios.forEach((municipio, i) => {
-            console.log(`${i + 1}, Nome do Município: ${municipio.nome}, Quantidade de Bairros: ${municipio.qBairros}, População: ${municipio.populacao}.`);
+            console.log(`${i + 1}
+            Nome do Município: ${municipio.nome}
+            Quantidade de Bairros: ${municipio.qBairros}
+            População: ${municipio.populacao}.`);
         });
         return true;
     };
