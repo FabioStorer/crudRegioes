@@ -121,7 +121,7 @@ while (true) {
 
                 default:
 
-                console.log('Opção inválida.');
+                    console.log('Opção inválida.');
 
                     break;
             }
@@ -130,7 +130,7 @@ while (true) {
 
         case 4:
 
-        console.log(`
+            console.log(`
         1. Remover Pais.
         2. Remover Estado.
         3. Remover Município.`);
@@ -140,18 +140,22 @@ while (true) {
 
                 case 1:
 
-                funcao.removerPais();
-                    
+                    funcao.removerPais();
+
                     break;
 
                 case 2:
-                    
-                break;
+
+                    funcao.removerEstado
+
+                    break;
 
                 case 3:
-                    
+
+                    funcao.removerMunicipio
+
                     break;
-            
+
                 default:
                     break;
             }
