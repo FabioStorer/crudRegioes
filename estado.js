@@ -60,7 +60,7 @@ const modeloEstado = () => {
 
 const cadastroEstados = () => {
 
-    modeloEstado();
+    let estado = modeloEstado();
 
     estados.push(estado);
     console.log('Escolha uma nova opção:');
@@ -88,12 +88,12 @@ const listaEstados = () => {
 const atualizarEstado = () => {
 
     if (listaEstados()) {
-        let indice = prompt('Escolha pelo índice qual estado deseja atualizar: ');
+        const indice = prompt('Escolha pelo índice qual estado deseja atualizar: ') - 1;
 
         if (verificarNumero(indice)) {
             console.log('Insira um número por favor.');
         } else {
-            let estado = modeloEstado();
+            const estado = modeloEstado();
             estados[indice] = estado;
         }
     }
@@ -104,7 +104,7 @@ const removerEstado = () => {
     if (listaEstados()) {
         let indice = prompt('Escolha pelo índice qual estado deseja remover: ');
 
-        paises.splice(indice - 1, 1);
+        estados.splice(indice - 1, 1);
     }
 };
 

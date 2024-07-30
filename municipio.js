@@ -49,7 +49,7 @@ const modeloMunicipio = () => {
 
 const cadastroMunicipio = () => {
 
-    let estado = modeloMunicipio();
+    let municipio = modeloMunicipio();
 
     municipios.push(municipio);
     console.log('Escolha uma nova opção.');
@@ -75,7 +75,7 @@ const listaMunicipios = () => {
 const atualizarMunicipio = () => {
 
     if (listaMunicipios()) {
-        let indice = prompt('Escolha pelo índice qual município deseja atualizar: ');
+        let indice = prompt('Escolha pelo índice qual município deseja atualizar: ') - 1;
 
         if (verificarNumero(indice)) {
             console.log('Insira um número por favor.');
@@ -91,7 +91,7 @@ const removerMunicipio = () => {
     if (listaMunicipios()) {
         let indice = prompt('Escolha pelo índice qual município deseja remover: ');
 
-        paises.splice(indice - 1, 1);
+        municipios.splice(indice - 1, 1);
     }
 };
 
